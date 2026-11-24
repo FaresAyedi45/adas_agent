@@ -59,9 +59,10 @@ def detect_user_persona(question: str) -> tuple:
     
     # 1. Signaux Expert (questions de pointe, limites, nuances théoriques)
     expert_keywords = [
-        "corner case", "sotif vs", "iso 26262 vs", "jacobienne", "ekf", "filtre de kalman étendu",
-        "insatisfaction", "limite physique", "faux positif", "zone 3", "zone 1",
-        "redondance lockstep", "mc/dc", "subtilité", "différence majeure entre"
+        "corner case", "sotif vs", "iso 26262 vs", "iso 21448 vs", "jacobienne", "ekf", "filtre de kalman étendu",
+        "insatisfaction", "limite physique", "faux positif", "zone 3", "zone 1", "zone 2",
+        "redondance lockstep", "mc/dc", "subtilité", "subtilite", "différence majeure", "difference majeure",
+        "comparaison entre", "comparer iso", "cas limite", "mode expert", "expert"
     ]
     if any(k in q_low for k in expert_keywords):
         return "Expert", "analyse de cas limites et comparaisons théoriques pointues"

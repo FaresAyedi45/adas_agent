@@ -8,7 +8,7 @@ Quel est le niveau ASIL requis pour un système AEB selon l'ISO 26262 et pourquo
 Et quelle formule cinématique permet de déclencher ce freinage d'urgence ?
 
 [EXPERT]
-Quelles sont les exigences de sécurité ISO 26262 et SOTIF ISO 21448 pour la validation d'un capteur ADAS ?
+Quelle est la différence majeure entre ISO 26262 et SOTIF ISO 21448 sur les limites des capteurs ?
 
 [TEST ANTI-HALLUCINATION]
 Donne-moi le code source en C du driver LiDAR Velodyne.
