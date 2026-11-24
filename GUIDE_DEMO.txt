@@ -1,0 +1,77 @@
+================================================================================
+       CAHIER DE DÉMONSTRATION & VALIDATION TECHNIQUE — ADAS AI AGENT
+            Cycle ReAct · Mémoire d'État · Multi-Personas · Normes ADAS
+================================================================================
+Auteurs  : Selim Ghouaiel & Fares Ayedi
+Système  : Agent Conversationnel Autonome pour l'Automobile
+Accès UI : http://localhost:8502
+================================================================================
+
+[MODE D'EMPLOI]
+Copiez-collez simplement chaque question ci-dessous dans la barre de chat.
+Laissez l'agent exécuter son cycle ReAct visible (Penser -> Chercher -> Raisonner).
+
+
+--------------------------------------------------------------------------------
+TEST 1 | PROFILAGE AUTONOME : MODE VULGARISATION
+--------------------------------------------------------------------------------
+QUESTION À COPIER-COLLER :
+C'est quoi l'ACC et comment ça marche ?
+
+* Rôle détecté automatiquement : 🎓 Étudiant
+* Objectif démontré au professeur :
+  L'agent identifie une question d'initiation et sélectionne lui-même le persona
+  "Étudiant". Il utilise des analogies simples (radar = yeux, actionneurs = pieds)
+  sans jargon mathématique excessif, tout en citant les pages d'introduction.
+
+
+--------------------------------------------------------------------------------
+TEST 2 | EXPERTISE NORMATIVE : SÉCURITÉ FONCTIONNELLE (ISO 26262)
+--------------------------------------------------------------------------------
+QUESTION À COPIER-COLLER :
+Quel est le niveau ASIL requis pour un système AEB selon l'ISO 26262 et pourquoi ?
+
+* Rôle détecté automatiquement : 👷 Ingénieur
+* Objectif démontré au professeur :
+  L'agent détecte le vocabulaire technique automobile. Il active l'expansion
+  d'acronymes ADAS (AEB, ASIL, HARA) et extrait la démonstration exacte du
+  Manuel d'Expertise (S3 + E4 + C3 = ASIL D, redondance matérielle Lockstep).
+* Score de confiance attendu : Élevé (~98%).
+
+
+--------------------------------------------------------------------------------
+TEST 3 | MÉMOIRE CONVERSATIONNELLE D'ÉTAT (FENÊTRE GLISSANTE)
+--------------------------------------------------------------------------------
+QUESTION À COPIER-COLLER (À poser immédiatement après le Test 2) :
+Et quelle formule cinématique permet de déclencher ce freinage d'urgence ?
+
+* Rôle détecté automatiquement : 👷 Ingénieur (continuité de session)
+* Objectif démontré au professeur :
+  On ne reprécise pas le mot "AEB". L'agent consulte sa mémoire d'état (les 5
+  derniers tours) pour comprendre immédiatement de quel système on parle.
+  Il extrait la notion de TTC (Time-To-Collision) avec rendu mathématique LaTeX.
+
+
+--------------------------------------------------------------------------------
+TEST 4 | ANTI-HALLUCINATION & TRANSPARENCE ÉPISTÉMIQUE
+--------------------------------------------------------------------------------
+QUESTION À COPIER-COLLER :
+Donne-moi le code source en C du driver LiDAR Velodyne.
+
+* Comportement attendu : Refus intègre & Score de confiance bas (< 50%)
+* Objectif démontré au professeur :
+  Contrairement à un LLM classique qui inventerait du code faux, notre agent
+  évalue la pertinence de ses 6 documents officiels. Constatant que l'information
+  est absente, il déclare en toute franchise :
+  "Cette information n'est pas dans ma base documentaire."
+
+
+================================================================================
+SYNTHÈSE TECHNIQUE À RAPPELER AU PROFESSEUR
+================================================================================
+1. Architecture ReAct : Penser (Triage) -> Chercher (ChromaDB) -> Raisonner (LLM)
+2. Modèle Primaire    : openai/gpt-oss-120b sur puces Groq LPU (Ultra-rapide)
+3. Embeddings         : sentence-transformers/all-MiniLM-L6-v2 (Vecteurs 384D)
+4. Base de données    : ChromaDB HNSW (4 174 chunks de 6 manuels officiels ADAS)
+5. Mémoire            : Buffer FIFO glissant (5 tours) persisté en JSON
+================================================================================
